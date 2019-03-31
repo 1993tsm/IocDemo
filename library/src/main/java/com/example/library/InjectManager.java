@@ -96,7 +96,7 @@ public class InjectManager {
                         Method setter = view.getClass().getMethod(listenerSetter, listenerType);//listenerSetter方法名  listenerType 方法的参数
                         //此时需要通过代理 去执行listenerType (也就是 View.OnClickListener) 同时需要InvocationHandler去拦截OnClickListener的回调方法onClick
                         //去执行自定义的方法
-                        ListenerInvocationHandler handler = new ListenerInvocationHandler();
+                        ListenerInvocationHandler handler = new ListenerInvocationHandler(activity);
                         handler.addMethod(callBack,method); //callBack回调的方法也就是被拦截的方法 类似onClick  method用户在activity中自己定义的方法
                         Object proxyInstance = null;
                         try {
