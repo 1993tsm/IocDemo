@@ -81,6 +81,7 @@ public class InjectManager {
                 if(annotationType != null) {
                     eventBase = annotationType.getAnnotation(EventBase.class);
                 }
+                if(eventBase == null) continue;
 
                 //获取元注解的值
                 String listenerSetter = eventBase.listenerSetter();
